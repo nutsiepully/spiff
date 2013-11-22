@@ -1,0 +1,8 @@
+
+Experiment Method
+  Classification method used - 
+  Filters used - 
+  Cross-Validation Type - 
+  Data used - 
+  Results - 
+
