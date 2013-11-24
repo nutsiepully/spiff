@@ -14,8 +14,10 @@ require 'rubygems'
   mapping - Mapping class values to names
 =end
 
-# Might want to use the small image instead of the full resolution image
-all_painting_paths = `find ../datasets/www.ibiblio.org/ -name "*jpg" | grep -v "small.jpg"`.split
+# TODO: Path names should not include datasets in them. They should start
+# from www.ibiblio.org
+# Only selecting the small files. Filtering dies on full resolution files.
+all_painting_paths = `find ../datasets/www.ibiblio.org/ -name "*jpg" | grep "small.jpg"`.split
 
 artist_painting_map = {}
 all_painting_paths.each { |painting_path|

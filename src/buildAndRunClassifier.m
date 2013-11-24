@@ -5,6 +5,15 @@
     2. directory of annotations (YTrain - essentially)
     3. Random cross-validation, or specified.
     4. Method to use - Simple BoW. Spatial BoW etc.
+
+    Approaches
+    1. Variation of filter bank
+    2. BoW
+    3. Spatial BoW
+    4. Image similarity functions. L2-Norm, Chi-Squared, Intersection
+    5. Implementation using SIFT etc.
+    6. Soft assignment using Encoding.
+    7. Variations of ML classifiers - SVM, Random Forests etc.
 }%
 
 % Create the traintest.mat file which has the file names etc.

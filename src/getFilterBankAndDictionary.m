@@ -1,5 +1,5 @@
 function [ filterBank, dictionary ] = getFilterBankAndDictionary( imPaths )
-    alpha = 50;
+    alpha = 150;
     K = 100;
 
     % Test code to limit runs over images
@@ -7,7 +7,7 @@ function [ filterBank, dictionary ] = getFilterBankAndDictionary( imPaths )
    
 	filterBank = createFilterBank();
  
-    num_images = size(imPaths, 2);
+    num_images = length(imPaths);
     % 128 harcoded here since that is the size of the descriptor vector from vl_feat.
     %filterResponses = zeros(alpha * num_images, 128);
     filterResponses = [];
@@ -17,6 +17,9 @@ function [ filterBank, dictionary ] = getFilterBankAndDictionary( imPaths )
         fprintf('Processing Image number %d\n', i);
         
         img = imread(imPaths{i});
+        if (size(img, 3) == 1)
+            continue;
+        end
         
         fr = extractFilterResponses(img, filterBank);
         
