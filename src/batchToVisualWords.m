@@ -27,17 +27,18 @@ load('traintest.mat','imPaths','mapping');
 load('dictionary.mat','filterBank','dictionary');
 
 source = '../datasets/';
-target = '../out/wordmaps/';
+% storing mat files in the same directory as the jpg.
+target = '../datasets/';
 
 if ~exist(target,'dir')
     mkdir(target);
 end
 
-for cate = mapping
-    if ~exist([target,cate{1}],'dir')
-        mkdir([target,cate{1}]);
-    end
-end
+% for cate = mapping
+%     if ~exist([target,cate{1}],'dir')
+%         mkdir([target,cate{1}]);
+%     end
+% end
 
 %This is a peculiarity of loading inside of a function with parfor. We need to 
 %tell MATLAB that these variables exist and should be passed to worker pools.
@@ -52,6 +53,10 @@ wordRepresentation = cell(l,1);
 parfor i=1:l
     fprintf('Converting to visual words %s\n', imPaths{i});
     image = imread([source, imPaths{i}]);
+    % skip grayscale images
+    if (size(image, 3) == 1)
+        continue;
+    end
     wordRepresentation{i} = getVisualWords(image, filterBank, dictionary);
 end
 

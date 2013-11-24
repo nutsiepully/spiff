@@ -17,6 +17,7 @@ function [ filterBank, dictionary ] = getFilterBankAndDictionary( imPaths )
         fprintf('Processing Image number %d\n', i);
         
         img = imread(imPaths{i});
+        % skip grayscale images
         if (size(img, 3) == 1)
             continue;
         end

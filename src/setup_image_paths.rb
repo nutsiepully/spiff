@@ -17,7 +17,8 @@ require 'rubygems'
 # TODO: Path names should not include datasets in them. They should start
 # from www.ibiblio.org
 # Only selecting the small files. Filtering dies on full resolution files.
-all_painting_paths = `find ../datasets/www.ibiblio.org/ -name "*jpg" | grep "small.jpg"`.split
+command = "find ../datasets/www.ibiblio.org/ -name '*jpg' | grep 'small.jpg' | sed 's#\.\.\/datasets\/##'"
+all_painting_paths = `#{command}`.split
 
 artist_painting_map = {}
 all_painting_paths.each { |painting_path|

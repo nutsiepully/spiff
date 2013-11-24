@@ -12,7 +12,7 @@ featureTrs = zeros(getNumDimensions(dictionarySize, numLayers), numTrs);
 for i = 1:numTrs,
     imPath = imTrs{i};
     % TODO: assumes a 3 character extension.
-    wordMapFilePath = char(strcat('../out/wordmaps/', imPath(1:end-3), 'mat'));
+    wordMapFilePath = char(strcat('../datasets/', imPath(1:end-3), 'mat'));
     
     load(wordMapFilePath, 'wordMap');
     
