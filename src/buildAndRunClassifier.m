@@ -18,3 +18,5 @@ computeDictionary
 % images.
 batchToVisualWords
 
+% Run an evaluation over all the images in the test set.
+evaluateRecognitionSystem

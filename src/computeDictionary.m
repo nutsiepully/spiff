@@ -6,7 +6,7 @@
 
 load('traintest.mat');
 % give the absolute path
-toProcess = strcat([cd,'../'],imTrs);
+toProcess = strcat([cd,'../datasets/'],imTrs);
 [filterBank, dictionary] = getFilterBankAndDictionary(toProcess);
 save('dictionary.mat','filterBank', 'dictionary');
 clear toProcess

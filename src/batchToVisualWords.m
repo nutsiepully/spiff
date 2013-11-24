@@ -26,8 +26,8 @@ matlabpool('local',numCores);
 load('traintest.mat','imPaths','mapping');
 load('dictionary.mat','filterBank','dictionary');
 
-source = '../';
-target = '../wordmaps/';
+source = '../datasets/';
+target = '../out/wordmaps/';
 
 if ~exist(target,'dir')
     mkdir(target);
