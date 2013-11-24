@@ -5,7 +5,7 @@ load('dictionary.mat');
 numLayers = 3;
 dictionarySize = size(dictionary, 1);
 
-numTrs = size(imTrs, 2);
+numTrs = length(imTrs);
 featureTrs = zeros(getNumDimensions(dictionarySize, numLayers), numTrs);
 %featureTrs = zeros(dictionarySize, numTrs);
 
