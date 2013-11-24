@@ -6,3 +6,5 @@ src/images
 src/wordmaps
 
 .DS_Store
+
+*.mat
