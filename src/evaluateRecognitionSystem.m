@@ -1,15 +1,21 @@
 
 load('traintest.mat');
+load('vision.mat');
 
-C = zeros(size(mapping, 2));
+C = zeros(length(mapping));
 
-numTss = size(imTss, 2);
+numTss = length(imTss);
 for i = 1:numTss,
-    imPath = strcat('../', imTss{i});    
+    imPath = strcat('../datasets/', imTss{i});    
     fprintf('Matching image : %s\n', imPath);
     
+    image = imread(imPath);
+    if (size(image, 3) == 1)
+        continue;
+    end
+
     actualClass = csTss(i);
-    guessedImageClass = getClassIndFromClass(mapping, guessImage(imPath));
+    guessedImageClass = getClassIndFromClass(mapping, guessImage(image, filterBank, dictionary, featureTrs, classTrs));
 
     C(actualClass, guessedImageClass) = C(actualClass, guessedImageClass) + 1;
 end

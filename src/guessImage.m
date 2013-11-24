@@ -1,14 +1,10 @@
-function guessedImage = guessImage( imageName )
+function guessedImage = guessImage( image, filterBank, dictionary, featureTrs, classTrs )
 % Xinlei Chen
 % CV Fall 2013 - Provided Code
 % Given a path to a scene image, guess what scene it is
 % Input:
 %   imageName - path to the image
 
-load('vision.mat');
-%load('vision2.mat');
-fprintf('[Loading..]\n');
-image = imread(imageName);
 % imshow(image);
 fprintf('[Getting Visual Words..]\n');
 wordMap = getVisualWords(image, filterBank, dictionary);
