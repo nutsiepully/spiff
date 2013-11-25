@@ -1,4 +1,4 @@
-function guessedImage = guessImage( image, filterBank, dictionary, featureTrs, classTrs )
+function [ guessClassName, guessClassInd ] = guessImage( image, filterBank, dictionary, featureTrs, classTrs, mapping )
 % Xinlei Chen
 % CV Fall 2013 - Provided Code
 % Given a path to a scene image, guess what scene it is
@@ -11,10 +11,16 @@ wordMap = getVisualWords(image, filterBank, dictionary);
 h = getImageFeaturesSPM( 3, wordMap, size(dictionary,1));
 %h = getImageFeatures(wordMap, size(dictionary,1));
 distances = distanceToSet(h, featureTrs);
+
+[ sortedDists, inds ] = sort(distances, 2, 'descend');
+display(sortedDists(1:15));
+display(classTrs(inds(1:15))');
+display(inds(1:15));
+
 [~,nnI] = max(distances);
-load('traintest.mat','mapping');
-guessedImage = mapping{classTrs(nnI)};
-fprintf('[My Guess]:%s.\n',guessedImage);
+guessClassInd = classTrs(nnI);
+guessClassName = mapping{guessClassInd};
+fprintf('[My Guess]:%s.\n',guessClassName);
 
 end
 

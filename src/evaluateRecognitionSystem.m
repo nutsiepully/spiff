@@ -15,7 +15,7 @@ for i = 1:numTss,
     end
 
     actualClass = csTss(i);
-    guessedImageClass = getClassIndFromClass(mapping, guessImage(image, filterBank, dictionary, featureTrs, classTrs));
+    [ ~, guessedImageClass ] = guessImage(image, filterBank, dictionary, featureTrs, classTrs, mapping);
 
     C(actualClass, guessedImageClass) = C(actualClass, guessedImageClass) + 1;
 end
