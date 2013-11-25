@@ -4,5 +4,5 @@ Experiment Method
   Filters used - Default filters from HW2
   Cross-Validation Type - Linearly separated into 70:30
   Data used - all from ibiblo
-  Results - 2.31% accuracy
+  Results - 9.87% accuracy
 

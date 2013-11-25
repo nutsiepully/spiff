@@ -12,10 +12,10 @@ h = getImageFeaturesSPM( 3, wordMap, size(dictionary,1));
 %h = getImageFeatures(wordMap, size(dictionary,1));
 distances = distanceToSet(h, featureTrs);
 
-[ sortedDists, inds ] = sort(distances, 2, 'descend');
-display(sortedDists(1:15));
-display(classTrs(inds(1:15))');
-display(inds(1:15));
+% [ sortedDists, inds ] = sort(distances, 2, 'descend');
+% display(sortedDists(1:15));
+% display(classTrs(inds(1:15))');
+% display(inds(1:15));
 
 [~,nnI] = max(distances);
 guessClassInd = classTrs(nnI);

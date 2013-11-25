@@ -53,10 +53,6 @@ wordRepresentation = cell(l,1);
 parfor i=1:l
     fprintf('Converting to visual words %s\n', imPaths{i});
     image = imread([source, imPaths{i}]);
-    % skip grayscale images
-    if (size(image, 3) == 1)
-        continue;
-    end
     wordRepresentation{i} = getVisualWords(image, filterBank, dictionary);
 end
 

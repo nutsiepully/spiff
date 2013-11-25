@@ -8,7 +8,7 @@ numTss = length(imTss);
 for i = 1:numTss,
     imPath = strcat('../datasets/', imTss{i});    
     fprintf('Matching image : %s\n', imPath);
-    
+
     image = imread(imPath);
     if (size(image, 3) == 1)
         continue;

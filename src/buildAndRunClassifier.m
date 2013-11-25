@@ -14,7 +14,9 @@
     5. Implementation using SIFT etc.
     6. Soft assignment using Encoding.
     7. Variations of ML classifiers - SVM, Random Forests etc.
-}%
+%}
+
+clear;
 
 % Create the traintest.mat file which has the file names etc.
 % and the rest of the code is dependent upon.
@@ -26,6 +28,10 @@ computeDictionary
 % Using the dictionary, build the visual word map for all the 
 % images.
 batchToVisualWords
+
+% Create the feature matrices for all the training images etc.
+% and setup the system.
+buildRecognitionSystem
 
 % Run an evaluation over all the images in the test set.
 evaluateRecognitionSystem

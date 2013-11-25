@@ -8,3 +8,4 @@ src/wordmaps
 .DS_Store
 
 *.mat
+sparse_coding
