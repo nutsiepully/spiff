@@ -1,6 +1,6 @@
 datasets/
 videos/
-.m~
+*.m~
 out/
 src/images
 src/wordmaps
