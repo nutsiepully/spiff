@@ -1,4 +1,6 @@
-datasets/
+datasets/*
+!datasets/scrape.sh
+
 videos/
 *.m~
 out/
