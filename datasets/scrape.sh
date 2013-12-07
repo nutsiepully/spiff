@@ -7,13 +7,14 @@ scrape() {
     --convert-links \
     --domains $2 \
     --no-parent \
+    --span-hosts \
     $1
 }
 
 SET1_URL=http://www.ibiblio.org/wm/paint/auth/
 SET1_DOMAIN=ibiblio.org
 
-SET2_URL=http://www.wikipaintings.org/
+SET2_URL=wikipaintings.org/
 SET2_DOMAIN=wikipaintings.org
 
 case "$1" in
