@@ -1,6 +1,6 @@
-
+function evaluateRecognitionSystem(type)
 load('traintest.mat');
-load('vision.mat');
+load(visionFileName(type));
 
 C = zeros(length(mapping));
 
@@ -15,7 +15,7 @@ for i = 1:numTss,
     end
 
     actualClass = csTss(i);
-    [ ~, guessedImageClass ] = guessImage(image, filterBank, dictionary, featureTrs, classTrs, mapping);
+    [ ~, guessedImageClass ] = guessImage(image, filterBank, dictionary, featureTrs, classTrs, mapping, type);
 
     C(actualClass, guessedImageClass) = C(actualClass, guessedImageClass) + 1;
 end
@@ -24,3 +24,5 @@ display(C);
 
 accuracy = trace(C) / sum(C(:)) * 100;
 fprintf('Accuracy is %.2f\n', accuracy);
+
+end

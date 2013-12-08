@@ -4,9 +4,12 @@
 % it in dictionary.mat
 %
 
+function computeDictionary(type)
 load('traintest.mat');
 % give the absolute path
 toProcess = strcat([cd,'/../datasets/'],imTrs);
-[filterBank, dictionary] = getFilterBankAndDictionary(toProcess);
-save('dictionary.mat','filterBank', 'dictionary');
+[filterBank, dictionary] = getFilterBankAndDictionary(toProcess, type);
+save(dictionaryFileName(type), 'filterBank', 'dictionary');
 clear toProcess
+
+end

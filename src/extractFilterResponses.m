@@ -1,4 +1,4 @@
-function [filterResponses] = extractFilterResponses(I, filterBank)
+function [filterResponses] = extractFilterResponses(I, filterBank, type)
 % Xinlei Chen
 % CV Fall 2013 - Provided Code
 % Inputs: 
@@ -6,6 +6,12 @@ function [filterResponses] = extractFilterResponses(I, filterBank)
 %   filterBank:         a cell array of N filters
 % Outputs:
 %   filterResponses:    a W*H x N*3 matrix of filter responses
+
+if strcmp(type, 'sift')
+  [~, fr] = vl_sift(single(rgb2gray(I)));
+  filterResponses = double(fr');
+  return;
+end
 
 %Convert to Lab
 doubleI = double(I);

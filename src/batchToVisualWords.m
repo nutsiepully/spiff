@@ -1,4 +1,4 @@
-function batchToVisualWords(numCores)
+function batchToVisualWords(numCores, type)
 % Xinlei Chen
 % CV Fall 2013 - Provided Code
 % Does parallel computation of the visual words 
@@ -24,7 +24,7 @@ matlabpool('local',numCores);
 
 %load the files and texton dictionary
 load('traintest.mat','imPaths','mapping');
-load('dictionary.mat','filterBank','dictionary');
+load(dictionaryFileName(type),'filterBank','dictionary');
 
 source = '../datasets/';
 % storing mat files in the same directory as the jpg.
@@ -44,6 +44,7 @@ end
 %tell MATLAB that these variables exist and should be passed to worker pools.
 filterBank = filterBank;
 dictionary = dictionary;
+type = type;
 
 %matlab can't save/load inside parfor; accumulate
 %them and then do batch save
@@ -53,7 +54,7 @@ wordRepresentation = cell(l,1);
 parfor i=1:l
     fprintf('Converting to visual words %s\n', imPaths{i});
     image = imread([source, imPaths{i}]);
-    wordRepresentation{i} = getVisualWords(image, filterBank, dictionary);
+    wordRepresentation{i} = getVisualWords(image, filterBank, dictionary, type);
 end
 
 %dump the files

@@ -17,21 +17,23 @@
 %}
 
 clear;
+option = 'sift';
+option = '';
 
 % Create the traintest.mat file which has the file names etc.
 % and the rest of the code is dependent upon.
 createTrainTest
 
 % Compute the dictionary after running the filters on the images.
-computeDictionary
+computeDictionary(option);
 
 % Using the dictionary, build the visual word map for all the 
 % images.
-batchToVisualWords
+batchToVisualWords(4, option);
 
 % Create the feature matrices for all the training images etc.
 % and setup the system.
-buildRecognitionSystem
+buildRecognitionSystem(option);
 
 % Run an evaluation over all the images in the test set.
-evaluateRecognitionSystem
+evaluateRecognitionSystem(option);

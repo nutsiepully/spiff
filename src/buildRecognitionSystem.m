@@ -1,6 +1,7 @@
+function buildRecognitionSystem( type )
 
 load('traintest.mat');
-load('dictionary.mat');
+load(dictionaryFileName(type));
 
 numLayers = 3;
 dictionarySize = size(dictionary, 1);
@@ -23,4 +24,4 @@ end
 
 classTrs = csTrs;
 
-save('vision.mat', 'filterBank', 'dictionary', 'featureTrs', 'classTrs');
+save(visionFileName(type), 'filterBank', 'dictionary', 'featureTrs', 'classTrs');
