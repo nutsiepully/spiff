@@ -11,3 +11,5 @@ src/wordmaps
 
 *.mat
 sparse_coding
+
+ref/
