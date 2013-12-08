@@ -3,4 +3,5 @@ function setupPath()
     addpath('../ref/rdir/');
     addpath('../ref/gist/');
     addpath('../ref/artSpy/');
+    addpath('../ref/simpsal/');
 end

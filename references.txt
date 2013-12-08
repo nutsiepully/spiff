@@ -1,0 +1,11 @@
+
+GIST
+----
+http://people.csail.mit.edu/torralba/code/spatialenvelope/
+
+Saliency Map - simpsal
+----------------------
+
+http://www.klab.caltech.edu/~harel/share/gbvs.php
+J. Harel, C. Koch, and P. Perona, "Graph-Based Visual Saliency", Proceedings of Neural Information Processing Systems (NIPS), 2006
+

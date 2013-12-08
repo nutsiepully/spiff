@@ -38,3 +38,7 @@ hold on;
 plot(rem_blurFeats, 'bo')
 plot(van_blurFeats, 'rx')
 plot(mon_blurFeats, 'g+')
+
+rem_gist = getGistFeatures(rem_imgs);
+van_gist = getGistFeatures(van_imgs);
+mon_gist = getGistFeatures(mon_imgs);
