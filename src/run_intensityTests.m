@@ -42,3 +42,34 @@ plot(mon_blurFeats, 'g+')
 rem_gist = getGistFeatures(rem_imgs);
 van_gist = getGistFeatures(van_imgs);
 mon_gist = getGistFeatures(mon_imgs);
+testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_gist; van_gist; mon_gist} );
+
+rem_hog = getHogFeatures(rem_imgs);
+van_hog = getHogFeatures(van_imgs);
+mon_hog = getHogFeatures(mon_imgs);
+testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_hog; van_hog; mon_hog} );
+
+rem_smap = getHogFeatures(rem_imgs);
+van_smap = getHogFeatures(van_imgs);
+mon_smap = getHogFeatures(mon_imgs);
+testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_smap; van_smap; mon_smap} );
+
+rem_haralick = getHogFeatures(rem_imgs);
+van_haralick = getHogFeatures(van_imgs);
+mon_haralick = getHogFeatures(mon_imgs);
+testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_haralick; van_haralick; mon_haralick} );
+
+rem_feats = [ rem_gist rem_hog rem_smap rem_haralick ];
+van_feats = [ van_gist van_hog van_smap van_haralick ];
+mon_feats = [ mon_gist mon_hog mon_smap mon_haralick ];
+testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_feats; van_feats; mon_feats} );
+
+
+
+
+
+
+
+
+
+

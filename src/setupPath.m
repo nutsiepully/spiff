@@ -4,4 +4,5 @@ function setupPath()
     addpath('../ref/gist/');
     addpath('../ref/artSpy/');
     addpath('../ref/simpsal/');
+    addpath('../ref/libsvm-3.17/matlab/');
 end
