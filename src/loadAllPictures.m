@@ -7,7 +7,7 @@ function [ imgs ] = loadAllPictures( artistName )
         if ~isempty(val)
             continue;
         end
-        imgs{end+1} = im2double(rgb2gray(imread(imageFiles(i).name)));
+        imgs{end+1} = rgb2gray(imread(imageFiles(i).name));
     end
     imgs = imgs';
 end
