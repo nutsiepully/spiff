@@ -3,6 +3,33 @@ rem_imgs = loadAllPictures('rembrandt');
 van_imgs = loadAllPictures('gogh');
 mon_imgs = loadAllPictures('monet');
 
+
+% Texture Features
+rem_haralick = getHaralickFeatures(rem_imgs);
+van_haralick = getHaralickFeatures(van_imgs);
+mon_haralick = getHaralickFeatures(mon_imgs);
+testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_haralick; van_haralick; mon_haralick } );
+
+% HOG Features
+rem_hog = getHogFeatures(rem_imgs);
+van_hog = getHogFeatures(van_imgs);
+mon_hog = getHogFeatures(mon_imgs);
+testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_hog; van_hog; mon_hog } );
+
+% GIST Features
+rem_gist = getGistFeatures(rem_imgs);
+van_gist = getGistFeatures(van_imgs);
+mon_gist = getGistFeatures(mon_imgs);
+testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_gist; van_gist; mon_gist } );
+
+% Simpsal - salient regions of scene
+rem_smap = getSimpSalFeatures(rem_imgs);
+van_smap = getSimpSalFeatures(van_imgs);
+mon_smap = getSimpSalFeatures(mon_imgs);
+testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_smap; van_smap; mon_smap } );
+
+
+
 rem_meanStd = meanStdImgs(rem_imgs);
 van_meanStd = meanStdImgs(van_imgs);
 mon_meanStd = meanStdImgs(mon_imgs);
@@ -38,26 +65,6 @@ hold on;
 plot(rem_blurFeats, 'bo')
 plot(van_blurFeats, 'rx')
 plot(mon_blurFeats, 'g+')
-
-rem_gist = getGistFeatures(rem_imgs);
-van_gist = getGistFeatures(van_imgs);
-mon_gist = getGistFeatures(mon_imgs);
-testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_gist; van_gist; mon_gist } );
-
-rem_hog = getHogFeatures(rem_imgs);
-van_hog = getHogFeatures(van_imgs);
-mon_hog = getHogFeatures(mon_imgs);
-testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_hog; van_hog; mon_hog } );
-
-rem_smap = getSimpSalFeatures(rem_imgs);
-van_smap = getSimpSalFeatures(van_imgs);
-mon_smap = getSimpSalFeatures(mon_imgs);
-testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_smap; van_smap; mon_smap } );
-
-rem_haralick = getHaralickFeatures(rem_imgs);
-van_haralick = getHaralickFeatures(van_imgs);
-mon_haralick = getHaralickFeatures(mon_imgs);
-testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_haralick; van_haralick; mon_haralick } );
 
 rem_feats = [ rem_gist rem_hog rem_smap rem_haralick ];
 van_feats = [ van_gist van_hog van_smap van_haralick ];
