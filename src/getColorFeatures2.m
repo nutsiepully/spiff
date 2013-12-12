@@ -1,8 +1,14 @@
-function [ features ] = getColorFeatures2( img )
-    [L, a, b] = RGB2Lab(img(:,:,1), img(:,:,2), img(:,:,3));
-    
-    h1 = hist(L, 4);
-    h2 = hist(a, 14);
-    h3 = hist(b, 14);
+function [ feats ] = getColorFeatures2( imgs )
+    hists = cellfun(@(x) imhist(x, 128)', imgs, 'UniformOutput', false);
+    feats = cell2mat(cellfun(@intFeats, hists, 'UniformOutput', false));
 end
 
+function [ feat ] = intFeats(h)
+    percDark = sum(h(1:32)) / sum(h);
+    %percBright = sum(h(97:128)) / sum(h);
+    
+    [~, sortIndex] = sort(h(:),'descend');
+    maxIndex = sortIndex(1:5)';
+    
+    feat = [ mean(h) std(h) skewness(h) kurtosis(h) percDark maxIndex ];
+end

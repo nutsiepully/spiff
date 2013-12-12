@@ -69,7 +69,15 @@ van_Color = getColorFeatures(van_imgs);
 mon_Color = getColorFeatures(mon_imgs);
 testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_Color; van_Color; mon_Color } );
 
+remIntHist = getImageIntensityHist(rem_imgs);
+vanIntHist = getImageIntensityHist(van_imgs);
+monIntHist = getImageIntensityHist(mon_imgs);
+testFeatures( { rem_imgs; van_imgs; mon_imgs }, { remIntHist; vanIntHist; monIntHist } );
 
+remIntFeat = getColorFeatures2(rem_imgs);
+vanIntFeat = getColorFeatures2(van_imgs);
+monIntFeat = getColorFeatures2(mon_imgs);
+testFeatures( { rem_imgs; van_imgs; mon_imgs }, { remIntFeat; vanIntFeat; monIntFeat } );
 
 
 
