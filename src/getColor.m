@@ -1,4 +1,5 @@
 function [ feats ] = getColor( imgGray )
+    imgGray = double(imgGray);
     r = size(imgGray, 1); c = size(imgGray, 2);
 
     mu1 = numel(imgGray(imgGray <= 0.25)) / numel(imgGray);
@@ -22,6 +23,6 @@ function [ feats ] = getColor( imgGray )
     sigma = sum(sum((imgGray - meani) .^ 2)) / (numel(imgGray) - 1);
     mu6 = sum(sum((imgGray - (meani / sigma)) .^ 3)) / numel(imgGray);
     
-    %feats = [ mu1 mu2 mu3 mu4 mu5 mu6 ];
-    feats = [ mu1 mu2 mu4 ];
+    feats = [ mu1 mu2 mu3 mu4 mu5 mu6 ];
+    %feats = [ mu1 mu2 mu4 ];
 end

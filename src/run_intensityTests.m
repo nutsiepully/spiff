@@ -28,7 +28,37 @@ van_smap = getSimpSalFeatures(van_imgs);
 mon_smap = getSimpSalFeatures(mon_imgs);
 testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_smap; van_smap; mon_smap } );
 
+%%%%%%%%%%%%%%%%%%
 
+% Edge Features - not discriminatory enough
+rem_edgeFeats = edgeFeatures(rem_imgs);
+van_edgeFeats = edgeFeatures(van_imgs);
+mon_edgeFeats = edgeFeatures(mon_imgs);
+plotFeatureSeparation({ rem_edgeFeats; van_edgeFeats; mon_edgeFeats })
+testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_edgeFeats; van_edgeFeats; mon_edgeFeats });
+
+% simple but descriptive
+rem_Color = getColorFeatures(rem_imgs);
+van_Color = getColorFeatures(van_imgs);
+mon_Color = getColorFeatures(mon_imgs);
+testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_Color; van_Color; mon_Color } );
+
+remIntHist = getImageIntensityHist(rem_imgs);
+vanIntHist = getImageIntensityHist(van_imgs);
+monIntHist = getImageIntensityHist(mon_imgs);
+testFeatures( { rem_imgs; van_imgs; mon_imgs }, { remIntHist; vanIntHist; monIntHist } );
+plotFeatureSeparation({ remIntHist; vanIntHist; monIntHist })
+
+remIntFeat = getColorFeatures2(rem_imgs);
+vanIntFeat = getColorFeatures2(van_imgs);
+monIntFeat = getColorFeatures2(mon_imgs);
+testFeatures( { rem_imgs; van_imgs; mon_imgs }, { remIntFeat; vanIntFeat; monIntFeat } );
+
+%%%%%%%%%%%%%%%%%%%
+
+rem_dwtFeats = dwtFeatures(rem_imgs);
+van_dwtFeats = dwtFeatures(van_imgs);
+mon_dwtFeats = dwtFeatures(mon_imgs);
 
 rem_meanStd = meanStdImgs(rem_imgs);
 van_meanStd = meanStdImgs(van_imgs);
@@ -38,19 +68,6 @@ hold on;
 plot(rem_meanStd(:, 1), rem_meanStd(:, 2), 'bo')
 plot(van_meanStd(:, 1), van_meanStd(:, 2), 'rx')
 plot(mon_meanStd(:, 1), mon_meanStd(:, 2), 'g+')
-
-rem_edgeFeats = edgeFeatures(rem_imgs);
-van_edgeFeats = edgeFeatures(van_imgs);
-mon_edgeFeats = edgeFeatures(mon_imgs);
-
-hold on;
-plot(rem_edgeFeats(:, 1), rem_edgeFeats(:, 2), 'bo')
-plot(van_edgeFeats(:, 1), van_edgeFeats(:, 2), 'rx')
-plot(mon_edgeFeats(:, 1), mon_edgeFeats(:, 2), 'g+')
-
-rem_dwtFeats = dwtFeatures(rem_imgs);
-van_dwtFeats = dwtFeatures(van_imgs);
-mon_dwtFeats = dwtFeatures(mon_imgs);
 
 hold on;
 plot(rem_dwtFeats, 'bo')
@@ -70,25 +87,3 @@ rem_feats = [ rem_gist rem_hog rem_smap rem_haralick ];
 van_feats = [ van_gist van_hog van_smap van_haralick ];
 mon_feats = [ mon_gist mon_hog mon_smap mon_haralick ];
 testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_feats; van_feats; mon_feats } );
-
-rem_Color = getColorFeatures(rem_imgs);
-van_Color = getColorFeatures(van_imgs);
-mon_Color = getColorFeatures(mon_imgs);
-testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_Color; van_Color; mon_Color } );
-
-remIntHist = getImageIntensityHist(rem_imgs);
-vanIntHist = getImageIntensityHist(van_imgs);
-monIntHist = getImageIntensityHist(mon_imgs);
-testFeatures( { rem_imgs; van_imgs; mon_imgs }, { remIntHist; vanIntHist; monIntHist } );
-
-remIntFeat = getColorFeatures2(rem_imgs);
-vanIntFeat = getColorFeatures2(van_imgs);
-monIntFeat = getColorFeatures2(mon_imgs);
-testFeatures( { rem_imgs; van_imgs; mon_imgs }, { remIntFeat; vanIntFeat; monIntFeat } );
-
-
-
-
-
-
-
