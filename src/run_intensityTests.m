@@ -86,4 +86,8 @@ plot(mon_blurFeats, 'g+')
 rem_feats = [ rem_gist rem_hog rem_smap rem_haralick ];
 van_feats = [ van_gist van_hog van_smap van_haralick ];
 mon_feats = [ mon_gist mon_hog mon_smap mon_haralick ];
+plotFeatureSeparation({ rem_feats; van_feats; mon_feats });
 testFeatures( { rem_imgs; van_imgs; mon_imgs }, { rem_feats; van_feats; mon_feats } );
+
+
+
